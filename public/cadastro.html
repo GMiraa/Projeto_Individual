@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/CSS.css">
+    <title>Planet Games | Cadastro</title>
+</head>
+<body id="body_login">
+
+    <div id="card-login">
+
+      <div class="alerta_erro">
+        <div class="card_erro" id="cardErro">
+          <span id="mensagem_erro"></span>
+        </div>
+      </div>
+
+        <div id="form-cadastro">
+        
+        <h2>Primeira vez por aqui? Crie uma conta!</h2>
+        <br>
+        <input type="text" placeholder="Nome Completo" id="input_nome"><br><br>
+        <input type="text" placeholder="Email" id="input_email"><br><br>
+        <input type="password" placeholder="Senha" id="input_senha"><br><br>
+        <input type="password" placeholder="Confirme sua senha" id="input_confSenha"><br><br>
+        <h3>Que tipo de jogador você é?</h3>
+        <select id="select_tipo">
+
+          <option value="#" selected disabled>Escolha uma Opção</option>
+          <option value="Casual">Casual</option>
+          <option value="Competitivo">Competitivo</option>
+
+        </select><br><br>
+
+        <div id="div_mensagem"></div><br>
+
+        <button type="submit" onclick="cadastrar()">Cadastrar</button><br>
+        <p>Já possui uma conta? <a href="./login.html">Entre por aqui!</a></p>
+
+
+        </div>
+    </div>
+    
+
+    <!--<p>Desenvolvido por <span id="desenvolvido">Guilherme Faria de Mira</span></p>-->
+
+    
+
+</body>
+</html>
+
+<script>
+
+    function cadastrar(){
+
+        var nomeVar = input_nome.value;
+        var emailVar = input_email.value;
+        var senhaVar = input_senha.value;
+        var ConfSenha = input_confSenha.value;
+        var tipoVar = select_tipo.value;
+
+        if(emailVar.indexOf("@") == -1 && emailVar.indexOf("'gmail'") == -1 || emailVar.indexOf("'hotmail'") == -1){
+
+            div_mensagem.innerHTML = `Email Inválido!`;
+
+        }
+        else if(nomeVar == '' || emailVar == '' || senhaVar == '' || ConfSenha == '' || tipoVar == '#'){
+
+            div_mensagem.innerHTML = `Preencha todos os campos!`;
+
+        }
+        else if(senhaVar != ConfSenha){
+
+            div_mensagem.innerHTML = `Senhas diferentes!`;
+
+        }
+        else {
+
+          fetch('/usuario/cadastrar', {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              nomeServer: nomeVar,
+              emailServer: emailVar,
+              senhaServer: senhaVar,
+              tipoServer: tipoVar
+            })
+          })
+          alert("Cadastro realizado com sucesso")
+          setTimeout(() => {
+          }, 1000);
+
+    }
+}
+
+</script>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/CSS.css">
+    <title>Planet Games | Login</title>
+</head>
+<body id="body_login">
+
+    <div id="card-login">
+
+        <div id="form">
+        
+        <h2>Bem-vindo de volta!</h2>
+        <br>
+        <input type="text" placeholder="Email" id="input_email"><br><br>
+        <input type="password" placeholder="Senha" id="input_senha"><br><br>
+
+        <div id="div_mensagem"></div><br>
+
+        <button type="submit" onclick="entrar()">Entrar</button><br>
+        <p>Não tem uma conta? <a href="./cadastro.html">Cadastre-se agora!</a></p>
+
+        </div>
+    </div>
+    
+
+    <!--<p>Desenvolvido por <span id="desenvolvido">Guilherme Faria de Mira</span></p>-->
+
+    
+
+</body>
+</html>
+
+<script>
+
+    function entrar(){
+
+        var email = input_email.value;
+        var senha = input_senha.value;
+
+        if (email == '' || senha == ''){
+
+            div_mensagem.innerHTML = `Preencha todos os campos!`;
+
+        }
+        else {
+
+            setTimeout(() => {
+            window.location = "./Paginas/home.html";
+          }, "1000");
+
+        }
+
+    }
+
+
+</script>
