@@ -72,6 +72,16 @@
           div_mensagem.innerHTML = `Email Inválido!`;
 
         }
+        else if(emailVar.indexOf(".") == -1){
+
+          div_mensagem.innerHTML = `Email Inválido!`;
+
+        }
+        else if(senhaVar.length < 5){
+
+          div_mensagem.innerHTML = `Senha muito curta!`;
+
+        }
         else if(nomeVar == '' || emailVar == '' || senhaVar == '' || ConfSenha == '' || tipoVar == '#'){
 
             div_mensagem.innerHTML = `Preencha todos os campos!`;

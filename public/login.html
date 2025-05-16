@@ -87,7 +87,7 @@
 
                 console.log("Houve um erro ao tentar realizar o login!");
 
-                div_mensagem.innerHTML = `Usuário não encontrado!`;
+                div_mensagem.innerHTML = `Email ou senha incorretos!`;
 
                 resposta.text().then(texto => {
                     console.error(texto);
