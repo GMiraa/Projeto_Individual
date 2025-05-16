@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" id="home">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/CSS.css">
+    <link rel="icon" href="./style/imagens/Logo da Planet Games.png">
+    <script src="./js/sessao.js"></script>
+
+    <title>Planet Games</title>
+
+</head>
+<body onload="validarSessao()">
+
+    <header>
+
+        <div id="navbar">
+
+            <img src="./style/imagens/Logo da Planet Games.png" alt="Logo" id="logo">
+
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./quiz.html">Quiz</a></li>
+                <li><a href="#"><span id="selecionado">Dashboard</span></a></li>
+                <li><a href="./quemsomos.html">Origem</a></li>
+            </ul>
+
+            <div id="perfilLogin">
+            <img src="./style/imagens/icone_usuario.png" alt="" id="perfil">
+            <span>Olá, <b id="b_usuario">usuário</b>!</span>
+            </div>
+            <div class="sair" onclick="limparSessao()">
+                <h3><a href="./login.html">Sair</a></h3>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <footer>
+
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./quiz.html">Quiz</a></li>
+                <li><a href="#"><span id="selecionado">Dashboard</span></a></li>
+                <li><a href="./quemsomos.html">Origem</a></li>
+            </ul>
+
+                <p>Desenvolvido por <span id="desenvolvido">Guilherme Faria de Mira</span></p>
+
+    </footer>
+
+</body>
+</html>

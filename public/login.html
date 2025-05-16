@@ -3,10 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/CSS.css">
+    <link rel="stylesheet" href="./style/CSS.css">
+    <link rel="icon" href="./style/imagens/Logo da Planet Games.png">
+
     <title>Planet Games | Login</title>
+
 </head>
 <body id="body_login">
+
+    <video disablepictureinpicture autoplay src="./style/imagens/PlanodeFundoLogin.mp4" muted loop id="videoFundo">
+        <source src="" type="video/mp4">
+    </video>
 
     <div id="card-login">
 
@@ -28,7 +35,6 @@
 
     <!--<p>Desenvolvido por <span id="desenvolvido">Guilherme Faria de Mira</span></p>-->
 
-    
 
 </body>
 </html>
@@ -37,23 +43,67 @@
 
     function entrar(){
 
-        var email = input_email.value;
-        var senha = input_senha.value;
+        var emailVar = input_email.value;
+        var senhaVar = input_senha.value;
 
-        if (email == '' || senha == ''){
+        div_mensagem.innerHTML = ``;
+
+        if (emailVar == '' || senhaVar == ''){
 
             div_mensagem.innerHTML = `Preencha todos os campos!`;
 
         }
         else {
 
-            setTimeout(() => {
-            window.location = "./Paginas/home.html";
-          }, "1000");
+            fetch("/usuario/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+
+                    setTimeout(function () {
+                        window.location = "./index.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                div_mensagem.innerHTML = `Usuário não encontrado!`;
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+
+            }
 
         }
 
-    }
 
 
 </script>

@@ -3,10 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/CSS.css">
+    <link rel="stylesheet" href="./style/CSS.css">
+    <link rel="icon" href="./style/imagens/Logo da Planet Games.png">
+
     <title>Planet Games | Cadastro</title>
+
 </head>
 <body id="body_login">
+
+    <video disablepictureinpicture autoplay src="./style/imagens/PlanodeFundoLogin.mp4" muted loop id="videoFundo">
+        <source src="" type="video/mp4">
+    </video>
 
     <div id="card-login">
 
@@ -60,9 +67,9 @@
         var ConfSenha = input_confSenha.value;
         var tipoVar = select_tipo.value;
 
-        if(emailVar.indexOf("@") == -1 && emailVar.indexOf("'gmail'") == -1 || emailVar.indexOf("'hotmail'") == -1){
+        if(emailVar.indexOf("@") == -1){
 
-            div_mensagem.innerHTML = `Email Inválido!`;
+          div_mensagem.innerHTML = `Email Inválido!`;
 
         }
         else if(nomeVar == '' || emailVar == '' || senhaVar == '' || ConfSenha == '' || tipoVar == '#'){
@@ -91,6 +98,7 @@
           })
           alert("Cadastro realizado com sucesso")
           setTimeout(() => {
+            window.location = "./login.html";
           }, 1000);
 
     }

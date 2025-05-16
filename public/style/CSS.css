@@ -5,11 +5,22 @@
 
 #body_login{
 
-    background-image: url(./imagens/PlanoFundo.png);
-    background-size: cover;
     margin: 0;
     font-family: 'Hubot Sans','Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     overflow: hidden;
+    background: none;
+
+}
+
+video{
+
+    top: 0;
+    position: fixed;
+    min-width: 100vw;
+    min-height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+    
 
 }
 
@@ -24,25 +35,21 @@
 
 #card-login {
 
+    position: relative;
     text-align: center;
     align-self: center;
     color: white;
     margin: 0;
-    
+    z-index: 100;
 
 }
 
 #form{
 
-    border: solid 2px white;
+    /* border: solid 2px white; */
     width: 40%;
     height: 300px;
-    border-top-right-radius: 55px;
-    border-top-left-radius: 12px;
-    border-bottom-left-radius: 55px;
-    border-bottom-right-radius: 12px;
     align-content: center;
-    background-color: rgba(142, 153, 177, 0.851);
     justify-self: center;
     margin-top: 10%;
     font-family: 'Hubot Sans','Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -50,15 +57,12 @@
 
 #form-cadastro{
 
-    border: solid 2px white;
+    /* border: solid 2px white; */
     width: 40%;
     height: 500px;
-    border-top-right-radius: 55px;
-    border-top-left-radius: 12px;
-    border-bottom-left-radius: 55px;
-    border-bottom-right-radius: 12px;
     align-content: center;
-    background-color: rgba(142, 153, 177, 0.851);
+    background-color: rgba(0, 0, 0, 0.212); 
+    border-radius: 20px;
     justify-self: center;
     margin-top: 2%;
     font-family: 'Hubot Sans','Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -131,13 +135,14 @@
 
     color: black;
     background-color: white;
-    border-color:  black;
+    border-color:  rgb(255, 255, 255);
     transition: 0.4s;
 }
 
 #form h2{
 
     font-size: 2rem;
+    font-family: 'aclonica', Georgia, 'Times New Roman', Times, serif;
 
 }
 
@@ -160,24 +165,208 @@
 
 }
 
-.alerta_erro{
+#navbar {
+    margin: 0;
+    height: 120px;
+    margin-top: 0%;
+    background: linear-gradient(to right, rgb(7, 3, 49), rgb(10, 10, 90));
     display: flex;
-    justify-content: flex-end;
-  }
-  
-  .card_erro {
-    display: none;
-    background-color: #fff;
-    color: black;
-    width: 230px;
-    position: fixed;
-    border-radius: 4px;
-    border: #ED145B 3px solid;
-    padding: 10px;
-    margin-right: 10%;
-  }
-  
-  .card_erro #mensagem_erro{
+    color: white;
+    justify-content: space-around;
+    width: 100%;
+    box-shadow: 0px 0px 30px 8px black;
+    align-items: center;
+    border-bottom: solid 1px white;
+    font-family: 'Hubot Sans','Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+body{
+
+    margin: auto;
+    background-color: rgb(16, 23, 47);
+
+}
+
+#navbar ul{
+
+    display: flex;
+    list-style-type: none;
+    width: 45%;
+    align-items: center;
+    
+}
+
+#navbar li{
+
+    font-size: 1rem;
+    margin-right: auto;
+
+}
+
+#navbar #logo{
+
+    width: 140px;
+    height: 130px;
+    margin-right: 10px;
+}
+
+#navbar #perfil{
+
+    width: 70px;
+    height: 70px;
+
+}
+
+#perfilLogin{
+
+    display: flex;
+
+}
+
+#perfilLogin span{
+
+    align-self: center;
+
+}
+
+#selecionado {
+
+    text-decoration: underline;
+
+}
+
+#navbar ul a {
+
+    text-decoration: none;
+    color: white;
+
+}
+
+
+.sair a {
+
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
     font-weight: 500;
-    font-size: 20px;
-  }
+
+}
+
+.sair, #navbar ul a, footer ul a {
+
+    position: relative;
+
+}
+
+.sair:after {
+
+    content: ' ';     /* para aparecer a "div"  */
+    position: absolute;/* para posicionar a "div"  */
+    width: 0; /* para dimensionar a "div"  */
+    height: 3px; /* para dimensionar a "div"  */
+    background-color: white;
+    bottom: 18px; /* para posicionar a "div"  */
+    transition: 0.2s; /* para "animar" a "div"  */
+
+}
+
+#navbar ul a:after, footer ul a:after{
+
+    content: ' ';     /* para aparecer a "div"  */
+    position: absolute;/* para posicionar a "div"  */
+    width: 0; /* para dimensionar a "div"  */
+    height: 2px; /* para dimensionar a "div"  */
+    background-color: white;
+    bottom: -1px; /* para posicionar a "div"  */
+    transition: 0.2s; /* para "animar" a "div"  */
+    left: 0px;
+
+}
+
+.sair:hover:after, #navbar ul a:hover:after, footer ul a:hover:after {
+
+    width: 100%;
+    
+}
+
+footer {
+
+    background: linear-gradient(to left, rgb(7, 2, 73), rgb(41, 41, 155));
+    height: 200px;
+    color: white;
+    margin-top: 25%;
+    border-top: solid 1px white;
+    
+}
+
+footer ul{
+
+    list-style-type: none;
+
+}
+
+footer ul li {
+
+    padding-top: 1%;
+    font-family: 'Hubot Sans','Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+
+footer ul a{
+
+    text-decoration: none;
+    color: white;
+    
+}
+
+footer p {
+
+    font-family: 'Hubot Sans','Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 0.6rem;
+    color: white;
+    margin-left: 43%;
+}
+
+#container1 {
+
+    height: 400px;
+    background-image: url(./imagens/PlanoFundo.png);
+    width: 100%;
+
+}
+
+#container1 button{
+
+    padding: 1%;
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 5px;
+    color: white;
+    margin-left: 44.5%;
+    margin-top: 18%;
+    transition: 0.2s;
+}
+
+#container1 button:hover {
+
+    background-color: white;
+    color: black;
+    border-color: white;
+    transition: 0.2s;
+
+}
+
+body p{
+
+    margin: 0;
+    color: white;
+
+}
+
+footer p {
+
+    margin-left: 41%;
+    font-size: 0.8rem;
+
+}
+
