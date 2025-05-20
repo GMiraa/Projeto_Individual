@@ -39,8 +39,6 @@ video{
 }
 
 #form{
-
-    /* border: solid 2px white; */
     
     width: 40%;
     height: 300px;
@@ -52,14 +50,14 @@ video{
 
 #form-cadastro{
 
-    /* border: solid 2px white; */
     width: 40%;
     height: 500px;
     align-content: center;
+    align-self: center;
     background-color: rgba(0, 0, 0, 0.212); 
     border-radius: 20px;
     justify-self: center;
-    margin-top: 2%;
+    margin-top: 10%;
     font-family: 'Hubot Sans','Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 

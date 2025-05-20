@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Hubot+Sans:ital,wght@0,200..900;1,200..900&display=swap');
+
+#navbar {
+    margin: 0;
+    height: 120px;
+    margin-top: 0%;
+    background: linear-gradient(to top, rgb(0, 0, 0), rgb(90, 10, 10));
+    display: flex;
+    color: white;
+    justify-content: space-around;
+    width: 100%;
+    box-shadow: 0px 0px 30px 8px black;
+    align-items: center;
+    border-bottom: solid 1px white;
+    font-family: 'Hubot Sans','Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+body{
+
+    margin: auto;
+    background-color: rgb(16, 23, 47);
+
+}
+
+#navbar ul{
+
+    display: flex;
+    list-style-type: none;
+    width: 45%;
+    align-items: center;
+    
+}
+
+#navbar li{
+
+    font-size: 1rem;
+    margin-right: auto;
+
+}
+
+#navbar #logo{
+
+    width: 140px;
+    height: 130px;
+    margin-right: 10px;
+}
+
+#navbar #perfil{
+
+    width: 70px;
+    height: 70px;
+
+}
+
+#perfilLogin{
+
+    display: flex;
+
+}
+
+#perfilLogin span{
+
+    align-self: center;
+
+}
+
+#selecionado {
+
+    text-decoration: underline;
+
+}
+
+#navbar ul a {
+
+    text-decoration: none;
+    color: white;
+
+}
+
+
+.sair a {
+
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+
+}
+
+.sair, #navbar ul a, footer ul a {
+
+    position: relative;
+
+}
+
+.sair:after {
+
+    content: ' ';     /* para aparecer a "div"  */
+    position: absolute;/* para posicionar a "div"  */
+    width: 0; /* para dimensionar a "div"  */
+    height: 3px; /* para dimensionar a "div"  */
+    background-color: white;
+    bottom: 18px; /* para posicionar a "div"  */
+    transition: 0.2s; /* para "animar" a "div"  */
+
+}
+
+#navbar ul a:after, footer ul a:after{
+
+    content: ' ';     /* para aparecer a "div"  */
+    position: absolute;/* para posicionar a "div"  */
+    width: 0; /* para dimensionar a "div"  */
+    height: 2px; /* para dimensionar a "div"  */
+    background-color: white;
+    bottom: -1px; /* para posicionar a "div"  */
+    transition: 0.2s; /* para "animar" a "div"  */
+    left: 0px;
+
+}
+
+.sair:hover:after, #navbar ul a:hover:after, footer ul a:hover:after {
+
+    width: 100%;
+    
+}
+
+footer {
+
+    background: linear-gradient(to bottom, rgb(0, 0, 0), rgb(90, 10, 10));
+    height: 220px;
+    color: white;
+    margin-top: 25%;
+    border-top: solid 1px white;
+    
+}
+
+footer ul{
+
+    list-style-type: none;
+
+}
+
+footer ul li {
+
+    padding-top: 1%;
+    font-family: 'Hubot Sans','Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+
+footer ul a{
+
+    text-decoration: none;
+    color: white;
+    
+}
+
+footer p {
+
+    font-family: 'Hubot Sans','Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 0.8rem;
+    color: white;
+}
+
+#desenvolvido {
+
+    margin-left: 40%;
+
+}

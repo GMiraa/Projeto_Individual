@@ -26,7 +26,7 @@
 
         <div id="div_mensagem"></div><br>
 
-        <button type="submit" onclick="entrar()">Entrar</button><br>
+        <button type="submit" onclick="entrar()" id="botão_entrar">Entrar</button><br>
         <p>Não tem uma conta? <a href="./cadastro.html">Cadastre-se agora!</a></p>
 
         </div>
@@ -41,6 +41,8 @@
 
 <script>
 
+var tentativas = 3;
+
     function entrar(){
 
         var emailVar = input_email.value;
@@ -48,7 +50,13 @@
 
         div_mensagem.innerHTML = ``;
 
-        if (emailVar == '' || senhaVar == ''){
+        if (tentativas == 0){
+
+            div_mensagem.innerHTML = `Tentativas excedidas!`;
+            botão_entrar.disabled;
+
+        }
+        else if(emailVar == '' || senhaVar == ''){
 
             div_mensagem.innerHTML = `Preencha todos os campos!`;
 
@@ -88,6 +96,8 @@
                 console.log("Houve um erro ao tentar realizar o login!");
 
                 div_mensagem.innerHTML = `Email ou senha incorretos!`;
+                div_mensagem.innerHTML +=`<br>Tentativas restantes: ${tentativas}`;
+                tentativas--;
 
                 resposta.text().then(texto => {
                     console.error(texto);
