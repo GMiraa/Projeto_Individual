@@ -1,3 +1,4 @@
+//const { cadastrarFavorito } = require("../controllers/usuarioController");
 var database = require("../database/config")
 
 function buscarPerfil(idUsuario){
@@ -30,8 +31,21 @@ function cadastrar(Nome, Email, Senha, TipoJogador) {
     return database.executar(instrucaoSql);
 }
 
+function cadastrarFavorito(NomeFavorito, TipoFavorito, DescricaoFavorito, id) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", NomeFavorito, TipoFavorito, DescricaoFavorito, id);
+    
+    // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
+    //  e na ordem de inserção dos dados.
+    var instrucaoSql = `
+        INSERT INTO favoritos (Nome, Estilo, Descrição, FkUsuario) VALUES ('${NomeFavorito}', '${TipoFavorito}', '${DescricaoFavorito}', '${id}');
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     autenticar,
     buscarPerfil,
-    cadastrar
+    cadastrar,
+    cadastrarFavorito
 };

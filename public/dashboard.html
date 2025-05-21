@@ -27,7 +27,7 @@
 
             <div id="perfilLogin">
             <img src="./style/imagens/icone_usuario.png" alt="" id="perfil">
-            <span>Olá, <b id="b_usuario">usuário</b>!</span>
+            <span id="b_usuario"><b><a href="./login.html">Entrar</a></b></span>
             </div>
             <div class="sair" onclick="limparSessao()">
                 <h3><a href="./login.html">Sair</a></h3>
@@ -37,6 +37,11 @@
 
     </header>
 
+    <h1>Seus Jogos favoritos</h1><br><br>
+
+    <div id="div_jogos"></div>
+    
+    <button onclick="cadastro()">Cadastrar jogo</button>
 
     <footer>
 
@@ -47,9 +52,21 @@
                 <li><a href="./quemsomos.html">Origem</a></li>
             </ul>
 
-                <p id="desenvolvido">Desenvolvido por Guilherme Faria de Mira</p>
+                <p id="desenvolvido">Desenvolvido por <b>Guilherme Faria de Mira</b></p>
 
     </footer>
 
 </body>
 </html>
+
+<script>
+
+    var jogos = 0;
+
+        function cadastro(){
+
+            window.location = "./cadastroJogo.html";
+
+        }
+
+</script>

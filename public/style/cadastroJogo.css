@@ -15,10 +15,11 @@
     font-family: 'Hubot Sans','Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+
 body{
 
     margin: auto;
-    background-color: rgb(16, 23, 47);
+    background-color: rgb(53, 8, 8);
 
 }
 
@@ -129,7 +130,7 @@ footer {
     background: linear-gradient(to bottom, rgb(0, 0, 0), rgb(90, 10, 10));
     height: 220px;
     color: white;
-    margin-top: 10%;
+    margin-top: 25%;
     border-top: solid 1px white;
     
 }
@@ -167,71 +168,88 @@ footer p {
 
 }
 
-#CriadorH1 {
+#input_jogo, #input_descricao {
+
+    background-color: transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: solid 1.5px white;
+    font-family: 'Hubot Sans',Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
+
+::-webkit-input-placeholder{
+
+    color: white;
+
+}
+
+#div_cadastro {
 
     text-align: center;
-    font-family: 'Aclonica', Georgia, 'Times New Roman', Times, serif;
-    font-size: 1.9rem;
-    color: white;
     margin-top: 5%;
 
 }
 
-.criador, .projeto {
+#div_cadastro h1 {
 
-    margin-top: 5%;
     color: white;
-    display: flex;
-    width: 90%;
-    margin-left: 6%;
+    font-family: 'Aclonica', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 
 }
 
-.criador img, .projeto img {
+#div_cadastro select {
 
-    height: 70%;
-    width: 90%;
-    border-radius: 100%;
-    margin-left: 5%;
-
-} 
-
-#contextoCriador, #contextoProjeto{
-
-    width: 10%;
-    margin-top: 10%;
+    background-color: transparent;
+    color: white;
+    width: 14.3%;
+    border: none;
+    border-bottom: solid 1.5px white;
+    margin-top: 1.1%;
+    padding: 0.5%;
 
 }
 
-#contextoCriador p {
+#div_cadastro option {
 
-    align-items: center;
-    align-self: center;
-    align-content: center;
-
-}
-
-#bodyCriador{
-
-    overflow-x: hidden;
+    color: white;
+    background-color: darkgray;
 
 }
 
-#imagem_criador, #imagem_projeto{
+input {
 
-    width: 100%;
+    padding: 0.5%;
+    color: white;
+    margin-top: 1%;
 
 }
 
-video {
+button {
 
-    position: absolute;
-    top: 0;
-    left: 0;
-    object-fit: cover;
-    object-position: 50% 25%; /* ← Centraliza o vídeo vertical e horizontalmente */
-    z-index: -1;
-    width: 100%;
-    height: 100%;
-    
+    background-color: transparent;
+    padding: 1%;
+    color: white;
+    border-radius: 10px;
+    border: solid 1px white;
+    transition: 0.2s;
+
+}
+
+button:hover{
+
+    background-color: white;
+    color: black;
+    border: solid 1px white;
+    transition: 0.2s;
+
+}
+
+#div_mensagem {
+
+    color: white;
+    font-family: 'Hubot Sans', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 600;
+
 }
