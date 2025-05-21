@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style/dashboard.css">
     <link rel="icon" href="./style/imagens/Logo da Planet Games.png">
+    <script></script>
     <script src="./js/sessao.js"></script>
+    <script src="./js/favoritos.js"></script>
 
     <title>Planet Games</title>
 
@@ -43,6 +45,10 @@
     
     <button onclick="cadastro()">Cadastrar jogo</button>
 
+    <hr>
+
+    <canvas id="GraficoFavoritos"></canvas>
+
     <footer>
 
             <ul>
@@ -61,12 +67,10 @@
 
 <script>
 
-    var jogos = 0;
+    function cadastro(){
 
-        function cadastro(){
+        window.location = "./cadastroJogo.html";
 
-            window.location = "./cadastroJogo.html";
-
-        }
-
+    }
+    
 </script>
