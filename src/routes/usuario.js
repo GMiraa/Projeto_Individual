@@ -16,6 +16,10 @@ router.post("/autenticar", function (req, res) {
     usuarioController.autenticar(req, res);
 });
 
+router.post("/apagarFavorito", function (req, res) {
+    usuarioController.apagarFavorito(req, res);
+});
+
 router.get("/BuscarFavorito/:id", function (req, res) {
     usuarioController.BuscarFavorito(req, res);
 })

@@ -50,9 +50,9 @@
     
     <button onclick="cadastro()">Cadastrar jogo</button>
 
-    <hr><br>
-
     <div id="div_mensagem"></div><br>
+
+    <hr><br>
 
     <canvas id="GraficoFavoritos"></canvas>
 
@@ -66,7 +66,7 @@
             </ul>
 
                 <p id="desenvolvido">Desenvolvido por <b>Guilherme Faria de Mira</b></p>
-
+            
     </footer>
 
 </body>
@@ -75,12 +75,11 @@
 <script>
 
     var id = sessionStorage.ID_USUARIO;
-    var lista = [];
 
     async function jogosFavoritos(){
         
         var contador = 0;
-        var quantidadeJogos = 9999;  // <-- Gambiarra para teste
+        var quantidadeJogos = 999;  // <-- Gambiarra para teste
 
         const resposta = await fetch(`/usuario/BuscarFavorito/${id}`);
 
@@ -89,7 +88,7 @@
         while(contador < quantidadeJogos){
 
 
-        div_jogos.innerHTML += `<div id="jogo"><span style = "color: white">Nome: ${dados[contador].Nome}<br><br>
+        div_jogos.innerHTML += `<div class="jogo" id="${dados[contador].idFavorito}"><button class="remover" onclick="apagarJogo(${dados[contador].idFavorito})" alt="Apagar Jogo">🗑</button><span style = "color: white">Nome: ${dados[contador].Nome}<br><br>
                                Estilo: ${dados[contador].Estilo}<br><br>
                                Descrição: ${dados[contador].Descrição}</span></div>`;
 
@@ -107,10 +106,26 @@
 
     }
 
-    function apagarJogo(){
+    function apagarJogo(idFavorito){
 
+        console.log(idFavorito);
 
+        var id = idFavorito;
 
+        fetch('/usuario/apagarFavorito', {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              idServer: id
+            })
+          })
+
+          div_mensagem.innerHTML = "Jogo apagado com sucesso!"
+
+        location.reload();
+        
     }
 
 
