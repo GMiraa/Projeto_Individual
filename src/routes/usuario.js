@@ -16,4 +16,8 @@ router.post("/autenticar", function (req, res) {
     usuarioController.autenticar(req, res);
 });
 
+router.get("/BuscarFavorito/:id", function (req, res) {
+    usuarioController.BuscarFavorito(req, res);
+})
+
 module.exports = router;

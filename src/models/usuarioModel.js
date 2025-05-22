@@ -32,7 +32,7 @@ function cadastrar(Nome, Email, Senha, TipoJogador) {
 }
 
 function cadastrarFavorito(NomeFavorito, TipoFavorito, DescricaoFavorito, id) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", NomeFavorito, TipoFavorito, DescricaoFavorito, id);
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrarFavorito():", NomeFavorito, TipoFavorito, DescricaoFavorito, id);
     
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
@@ -43,9 +43,20 @@ function cadastrarFavorito(NomeFavorito, TipoFavorito, DescricaoFavorito, id) {
     return database.executar(instrucaoSql);
 }
 
+function BuscarFavorito(id){
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function BuscarFavorito():", id);
+
+    var instrucaoSql = `
+        SELECT Nome, Estilo, Descrição FROM favoritos WHERE FkUsuario = '${id}';
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     autenticar,
     buscarPerfil,
     cadastrar,
-    cadastrarFavorito
+    cadastrarFavorito,
+    BuscarFavorito
 };

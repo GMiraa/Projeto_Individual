@@ -8,6 +8,7 @@
     <script></script>
     <script src="./js/sessao.js"></script>
     <script src="./js/favoritos.js"></script>
+    <script src="./js/dashboard.js"></script>
 
     <title>Planet Games</title>
 
@@ -39,13 +40,19 @@
 
     </header>
 
-    <h1>Seus Jogos favoritos</h1><br><br>
+        <h1>Seus Jogos favoritos</h1><br><br>
 
-    <div id="div_jogos"></div>
+    <div id="container">
+
+        <div id="div_jogos" style="display: flex; gap: 10px; flex-wrap: wrap;"></div>
+
+    </div>
     
     <button onclick="cadastro()">Cadastrar jogo</button>
 
-    <hr>
+    <hr><br>
+
+    <div id="div_mensagem"></div><br>
 
     <canvas id="GraficoFavoritos"></canvas>
 
@@ -67,10 +74,44 @@
 
 <script>
 
+    var id = sessionStorage.ID_USUARIO;
+    var lista = [];
+
+    async function jogosFavoritos(){
+        
+        var contador = 0;
+        var quantidadeJogos = 9999;  // <-- Gambiarra para teste
+
+        const resposta = await fetch(`/usuario/BuscarFavorito/${id}`);
+
+        const dados = await resposta.json();
+
+        while(contador < quantidadeJogos){
+
+
+        div_jogos.innerHTML += `<div id="jogo"><span style = "color: white">Nome: ${dados[contador].Nome}<br><br>
+                               Estilo: ${dados[contador].Estilo}<br><br>
+                               Descrição: ${dados[contador].Descrição}</span></div>`;
+
+        console.log(dados);
+        contador++
+        }
+    }
+
+    jogosFavoritos();
+
+        
     function cadastro(){
 
         window.location = "./cadastroJogo.html";
 
     }
-    
+
+    function apagarJogo(){
+
+
+
+    }
+
+
 </script>

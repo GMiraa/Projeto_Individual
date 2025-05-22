@@ -97,8 +97,27 @@ function cadastrarFavorito(req, res) {
         );
 }
 
+    function BuscarFavorito(req, res) {
+    
+        var id = req.params.id;
+
+    usuarioModel.BuscarFavorito(id).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado); 
+        } else {
+            res.status(204).send("Nenhum jogo favorito encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar os jogos.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+
 module.exports = {
     autenticar,
     cadastrar,
-    cadastrarFavorito
+    cadastrarFavorito,
+    BuscarFavorito
 }

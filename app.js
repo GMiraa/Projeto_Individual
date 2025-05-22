@@ -26,6 +26,7 @@ app.use(cors());
 app.use("/usuario", usuarioRouter);
 
 
+
 app.listen(PORTA_APP, function () {
     console.log(`
     ##   ##  ######   #####             ####       ##     ######     ##              ##  ##    ####    ######  
