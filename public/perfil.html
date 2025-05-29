@@ -36,7 +36,16 @@
 
     </header>
 
+    <video disablepictureinpicture autoplay src="./style/imagens/fundoLogin.mp4" muted loop id="videoFundo">
+        <source src="" type="video/mp4">
+    </video>
 
+        <h1>Perfil de <span id="nome_user">usuario</span></h1>
+
+
+        <img id="img_perfil" src="./style/imagens/icone_usuario.png" alt=""><br><br>
+        <div id="infos_usuario"></div>
+    
 
     <footer>
 
@@ -53,3 +62,29 @@
     
 </body>
 </html>
+
+<script>
+
+    var nome = sessionStorage.NOME_USUARIO;
+    var email = sessionStorage.EMAIL_USUARIO;
+    var tipo = sessionStorage.TIPO_USUARIO;
+
+    function infos(){
+
+        nome_user.innerHTML = `${nome}`;
+
+        infos_usuario.innerHTML = `Email: <b>${email}</b><br><br>
+                                   Tipo de Jogador: <b>${tipo}</b><br><br>
+                                   <button onclick="alterarInfos()" id="altButton">Alterar informações</button>`;
+
+    }
+
+    infos();
+
+    function alterarInfos(){
+
+        
+
+    }
+
+</script>

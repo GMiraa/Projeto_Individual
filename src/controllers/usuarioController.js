@@ -27,6 +27,7 @@ function autenticar(req, res) {
                                         id: resultadoAutenticar[0].idUsuario,
                                         email: resultadoAutenticar[0].Email,
                                         nome: resultadoAutenticar[0].Nome,
+                                        tipo: resultadoAutenticar[0].TipoJogador
                                     });
                                 }
                             })

@@ -12,7 +12,7 @@ function buscarPerfil(idUsuario){
 function autenticar(Email, Senha) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", Email, Senha)
     var instrucaoSql = `
-        SELECT idUsuario, Nome, Email FROM usuario WHERE Email = '${Email}' AND Senha = '${Senha}';
+        SELECT idUsuario, Nome, Email, TipoJogador FROM usuario WHERE Email = '${Email}' AND Senha = '${Senha}';
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);

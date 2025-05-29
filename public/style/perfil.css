@@ -174,3 +174,57 @@ footer p {
     margin-left: 40%;
 
 }
+
+h1 {
+
+    color: white;
+    font-family: 'aclonica', Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    margin-top: 5%;
+
+}
+
+#img_perfil {
+
+    width: 20%;
+    height: 20%;
+    margin-left: 40%;
+
+}
+
+#infos_usuario {
+
+    color: white;
+    font-family: 'aclonica', Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+
+}
+
+video{
+
+    top: 0;
+    position: fixed;
+    object-fit: cover;
+    z-index: -1;
+
+}
+
+#altButton{
+
+    background-color: transparent;
+    padding: 1%;
+    color: white;
+    border-radius: 10px;
+    border: solid 1px white;
+    transition: 0.2s;
+
+}
+
+#altButton:hover{
+
+    background-color: white;
+    color: black;
+    border: solid 1px white;
+    transition: 0.2s;
+
+}
