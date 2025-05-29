@@ -7,7 +7,7 @@
     <link rel="icon" href="./style/imagens/Logo da Planet Games.png">
     <script src="./js/sessao.js"></script>
 
-    <title>Document</title>
+    <title>Planet Games</title>
 </head>
 <body onload="validarSessao()">
 
@@ -18,16 +18,12 @@
             <img src="./style/imagens/Logo da Planet Games.png" alt="Logo" id="logo">
 
             <ul>
-                <li><a href="#"><span id="selecionado">Home</span></a></li>
+                <li><a href="./index.html">Home</a></li>
                 <li><a href="./quiz.html">Quiz</a></li>
                 <li><a href="./dashboard.html">Dashboard</a></li>
                 <li><a href="./quemsomos.html">Origem</a></li>
             </ul>
 
-            <div id="perfilLogin">
-            <img src="./style/imagens/icone_usuario.png" alt="" id="perfil">
-            <span id="b_usuario"><b><a href="./login.html">Entrar</a></b></span>
-            </div>
             <div class="sair" onclick="limparSessao()">
                 <h3><a href="./login.html">Sair</a></h3>
             </div>
@@ -36,27 +32,25 @@
 
     </header>
 
-    <video disablepictureinpicture autoplay src="./style/imagens/fundoLogin.mp4" muted loop id="videoFundo">
+    <video disablepictureinpicture autoplay src="./style/imagens/sunset-sky-ghost-of-tsushima-moewalls-com.mp4" muted loop id="videoFundo">
         <source src="" type="video/mp4">
     </video>
 
-        <h1>Perfil de <span id="nome_user">usuario</span></h1>
+    <div class="container2">
+        <div id="perfil">
+
+            <h1>Perfil de <span id="nome_user">usuario</span></h1>
 
 
-        <img id="img_perfil" src="./style/imagens/icone_usuario.png" alt=""><br><br>
-        <div id="infos_usuario"></div>
+            <img id="img_perfil" src="./style/imagens/icone_usuario.png" alt=""><br><br>
+            <div id="infos_usuario"></div>
     
+        </div>
+    </div>
 
     <footer>
 
-            <ul>
-                <li><a href="#"><span id="selecionado">Home</span></a></li>
-                <li><a href="./quiz.html">Quiz</a></li>
-                <li><a href="./dashboard.html">Dashboard</a></li>
-                <li><a href="./quemsomos.html">Origem</a></li>
-            </ul>
-
-                <p id="desenvolvido">Desenvolvido por <b>Guilherme Faria de Mira</b></p>
+        <p id="desenvolvido">Desenvolvido por <b>Guilherme Faria de Mira</b></p>
 
     </footer>
     
@@ -83,7 +77,7 @@
 
     function alterarInfos(){
 
-        
+
 
     }
 
