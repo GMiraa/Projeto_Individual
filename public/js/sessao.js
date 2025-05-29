@@ -6,7 +6,7 @@ function validarSessao() {
     var b_usuario = document.getElementById("b_usuario");
     
     if (email != null && nome != null) {
-        b_usuario.innerHTML = `Olá, ${nome}`;
+        b_usuario.innerHTML = `Olá,<a id="perfil" href="./perfil.html"> ${nome}</a>`;
     } else {
         window.location = "./login.html";
     }

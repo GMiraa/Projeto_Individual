@@ -125,6 +125,13 @@ body{
     
 }
 
+#perfil{
+
+    text-decoration: none;
+    color: white;
+
+}
+
 footer {
 
     background: linear-gradient(to bottom, rgb(0, 0, 0), rgb(90, 10, 10));
@@ -215,7 +222,7 @@ button:hover{
     width: 27%;
     margin-bottom: 2%;
     color: white;
-    border-radius: 10px;
+    border-radius: 15%;
     border: solid 1px white;
     background-color: rgba(255, 255, 255, 0.468);
     font-family: 'Hubot Sans', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
