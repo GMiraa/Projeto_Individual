@@ -43,7 +43,11 @@
 
 
             <img id="img_perfil" src="./style/imagens/icone_usuario.png" alt=""><br><br>
-            <div id="infos_usuario"></div>
+            <div id="infos_usuario"></div><br><br>
+
+            <button onclick="alterarInfos()" id="altButton">Alterar informações</button>`;
+
+            <div id="AtualizarDados"></div>
     
         </div>
     </div>
@@ -68,14 +72,32 @@
         nome_user.innerHTML = `${nome}`;
 
         infos_usuario.innerHTML = `Email: <b>${email}</b><br><br>
-                                   Tipo de Jogador: <b>${tipo}</b><br><br>
-                                   <button onclick="alterarInfos()" id="altButton">Alterar informações</button>`;
+                                   Tipo de Jogador: <b>${tipo}</b><br><br>`;
 
     }
 
     infos();
 
     function alterarInfos(){
+
+        AtualizarDados.innerHTML = `
+                                <div id="Atualizar">
+                                    <input type="text" placeholder="Nome" id="input_email"><br><br>
+                                    <select id="select_tipo">
+
+                                        <option value="#" selected disabled>Escolha uma Opção</option>
+                                        <option value="Casual">Casual</option>
+                                        <option value="Competitivo">Competitivo</option>
+
+                                    </select><br><br>
+
+                                    <button onclick="atualizarD()">Atualizar dados</button>
+                                </div>`;
+                                    
+
+    }
+
+    function atualizarD(){
 
 
 
