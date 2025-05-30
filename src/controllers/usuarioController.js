@@ -137,6 +137,30 @@ function cadastrarFavorito(req, res) {
         );
 }
 
+function alterarDados(req, res){
+
+        var Email = req.body.emailNovo;
+        var Tipo = req.body.tipoNovo;
+        var idUsuario = req.body.idServer;
+
+    // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+    usuarioModel.alterarDados(Email, Tipo, idUsuario)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao atualizar as informações! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
 
 
 module.exports = {
@@ -144,6 +168,7 @@ module.exports = {
     cadastrar,
     cadastrarFavorito,
     BuscarFavorito,
-    apagarFavorito
+    apagarFavorito,
+    alterarDados
 
 }

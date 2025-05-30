@@ -63,11 +63,22 @@ function apagarFavorito(idFavorito){
     return database.executar(instrucaoSql);
 }
 
+function alterarDados(Email, Tipo, idUsuario){
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function atualizarDados():", Email, Tipo, idUsuario);
+
+    var instrucaoSql = `
+        UPDATE usuario SET Email = "${Email}", TipoJogador = "${Tipo}" WHERE idUsuario = '${idUsuario}';
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     autenticar,
     buscarPerfil,
     cadastrar,
     cadastrarFavorito,
     BuscarFavorito,
-    apagarFavorito
+    apagarFavorito,
+    alterarDados
 };

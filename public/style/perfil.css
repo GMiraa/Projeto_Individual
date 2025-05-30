@@ -310,3 +310,10 @@ button:hover{
     transition: 0.2s;
 
 }
+
+#div_mensagem {
+
+    color: white;
+    font-family: 'Aclonica', Georgia, 'Times New Roman', Times, serif;
+
+}

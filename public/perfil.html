@@ -45,7 +45,7 @@
             <img id="img_perfil" src="./style/imagens/icone_usuario.png" alt=""><br><br>
             <div id="infos_usuario"></div><br><br>
 
-            <button onclick="alterarInfos()" id="altButton">Alterar informações</button>`;
+            <div id="botao"><button onclick="alterarInfos()" id="altButton">Alterar informações</button></div>
 
             <div id="AtualizarDados"></div>
     
@@ -82,7 +82,7 @@
 
         AtualizarDados.innerHTML = `
                                 <div id="Atualizar">
-                                    <input type="text" placeholder="Nome" id="input_email"><br><br>
+                                    <input type="text" placeholder="Email" id="input_email"><br><br>
                                     <select id="select_tipo">
 
                                         <option value="#" selected disabled>Escolha uma Opção</option>
@@ -92,14 +92,43 @@
                                     </select><br><br>
 
                                     <button onclick="atualizarD()">Atualizar dados</button>
+                                    <div id="div_mensagem"></div>
                                 </div>`;
                                     
+        botao.innerHTML = ``;
 
     }
 
     function atualizarD(){
 
+        var email = input_email.value;
+        var tipo = select_tipo.value;
+        var id = sessionStorage.ID_USUARIO;
 
+        if(email == `` || tipo == ``){
+
+            div_mensagem.innerHTML = `Preencha todos os campos!`;
+
+        }
+        else{
+
+            fetch('/usuario/alterarDados', {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              emailNovo: email,
+              tipoNovo: tipo,
+              idServer: id
+            })
+          })
+          div_mensagem.innerHTML = `Informações atualizadas com sucesso!`;
+          setTimeout(() => {
+            window.location = "./login.html";
+          }, 2000);
+
+        }
 
     }
 

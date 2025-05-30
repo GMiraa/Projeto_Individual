@@ -24,4 +24,8 @@ router.get("/BuscarFavorito/:id", function (req, res) {
     usuarioController.BuscarFavorito(req, res);
 })
 
+router.post("/alterarDados", function (req, res) {
+    usuarioController.alterarDados(req, res);
+});
+
 module.exports = router;
