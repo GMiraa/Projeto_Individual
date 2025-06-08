@@ -110,6 +110,21 @@ function GenerosPublico(){
     return database.executar(instrucaoSql);
 }
 
+function KpiPublico(){
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function KpiPublico():");
+
+    var instrucaoSql = `
+        SELECT usuario.Nome, COUNT(idFavorito) AS QuantidadeJogos
+        FROM usuario
+        JOIN favoritos ON idUsuario = FkUsuario
+        GROUP BY idUsuario
+        ORDER BY QuantidadeJogos DESC
+        LIMIT 1;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     autenticar,
     buscarPerfil,
@@ -120,5 +135,6 @@ module.exports = {
     alterarDados,
     BuscarQuantidade,
     GenerosIndividual,
-    GenerosPublico
+    GenerosPublico,
+    KpiPublico
 };

@@ -40,6 +40,12 @@ router.get("/GenerosPublico/", function (req, res) {
     usuarioController.GenerosPublico(req, res);
 })
 
+router.get("/KpiPublico/", function (req, res) {
+    usuarioController.KpiPublico(req, res);
+})
+
+
+
 
 
 module.exports = router;
