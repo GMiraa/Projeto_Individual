@@ -115,6 +115,55 @@ function cadastrarFavorito(req, res) {
     });
 }
 
+    function BuscarQuantidade(req, res) {
+    
+        var id = req.params.id;
+
+    usuarioModel.BuscarQuantidade(id).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado); 
+        } else {
+            res.status(204).send("Nenhum jogo favorito encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar os jogos.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+    function GenerosIndividual(req, res) {
+    
+        var id = req.params.id;
+
+    usuarioModel.GenerosIndividual(id).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado); 
+        } else {
+            res.status(204).send("Nenhum jogo favorito encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar os jogos.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+    function GenerosPublico(req, res) {
+
+    usuarioModel.GenerosPublico().then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado); 
+        } else {
+            res.status(204).send("Nenhum jogo favorito encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar os jogos.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
     function apagarFavorito(req, res){
 
         var idFavorito = req.body.idServer;
@@ -169,6 +218,9 @@ module.exports = {
     cadastrarFavorito,
     BuscarFavorito,
     apagarFavorito,
-    alterarDados
+    alterarDados,
+    BuscarQuantidade,
+    GenerosIndividual,
+    GenerosPublico
 
 }

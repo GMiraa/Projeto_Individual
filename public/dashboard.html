@@ -7,7 +7,7 @@
     <link rel="icon" href="./style/imagens/Logo da Planet Games.png">
     <script></script>
     <script src="./js/sessao.js"></script>
-    <script src="./js/dashboard.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <title>Planet Games</title>
 
@@ -59,7 +59,37 @@
 
     <h1>Dashboard</h1>
 
-    <canvas id="GraficoFavoritos"></canvas>
+    <div class="kpis">
+
+        <div id="kpi1">
+
+            <p>Estilo mais jogado pela comunidade: <b><span id="estiloMaisJogado"></span></b></p>
+
+        </div>
+
+        <div id="kpi2">
+
+            <p>Usuario que mais cadastrou jogos: <span id="UsuarioMaisCadastro"></span></p>
+
+        </div>
+
+    </div>
+
+    <div class="graficos">
+
+        <div id="grafico1">
+
+            <canvas id="GraficoFavoritos"></canvas>
+
+        </div>
+
+        <div id="grafico2">
+
+            <canvas id="GraficoGeral"></canvas>
+
+        </div>
+
+    </div>
 
     <footer>
 
@@ -79,26 +109,32 @@
 
 <script>
 
+    var tiposPublico = [];
+    var QuantidadePublico = [];
+
+    var jogos = [];
+
     var id = sessionStorage.ID_USUARIO;
+    var maisJogado = 0;
+    var UsuarioMais = 0;
 
     async function jogosFavoritos(){
-        
-        var contador = 0;
-        var quantidadeJogos = 999;  // <-- Gambiarra para teste
 
         const resposta = await fetch(`/usuario/BuscarFavorito/${id}`);
 
         const dados = await resposta.json();
 
-        while(contador < quantidadeJogos){
+        jogos = dados;
+
+        for(var i = 0; i < jogos.length ; i++){
 
 
-        div_jogos.innerHTML += `<div class="jogo" id="${dados[contador].idFavorito}"><button class="remover" onclick="apagarJogo(${dados[contador].idFavorito})" alt="Apagar Jogo">🗑</button><span style = "color: white">Nome: ${dados[contador].Nome}<br><br>
-                               Estilo: ${dados[contador].Estilo}<br><br>
-                               Descrição: ${dados[contador].Descrição}</span></div>`;
+        div_jogos.innerHTML += `<div class="jogo" id="${jogos[i].idFavorito}"><button class="remover" onclick="apagarJogo(${jogos[i].idFavorito})" alt="Apagar Jogo">🗑</button><span style = "color: white">Nome: ${jogos[i].Nome}<br><br>
+                               Estilo: ${jogos[i].Estilo}<br><br>
+                               Descrição: ${jogos[i].Descrição}</span></div>`;
 
         console.log(dados);
-        contador++
+
         }
     }
 
@@ -135,8 +171,105 @@
 
     // adicionando os gráficos
 
-    
-    
+
+    async function ObterDadosIndividual() {
+        
+        const resposta = await fetch(`/usuario/GenerosIndividual/${id}`);
+
+        const dados = await resposta.json();
+
+        const estilo = dados.map(item => item.Estilo);
+        const quantidade = dados.map(item => item.Quantidade);
+
+        Gerar(estilo, quantidade);
+
+    }
+
+    async function ObterDadosPublicos() {
+        
+        const resposta = await fetch(`/usuario/GenerosPublico/`);
+
+        const dados = await resposta.json();
+
+        const estiloPublico = dados.map(item => item.Estilo);
+        tiposPublico = estiloPublico;
+
+        const quantidadePublico = dados.map(item => item.Quantidade);
+        QuantidadePublico = quantidadePublico;
+
+
+        Gerar2(estiloPublico, quantidadePublico);
+
+        maisJogado = tiposPublico[0];
+
+        estiloMaisJogado.innerHTML = `${maisJogado}`;
+
+    }
+
+    function Gerar(estilo, quantidade){
+
+    const ctx = document.getElementById('GraficoFavoritos').getContext('2d');
+    const grafico = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: estilo,
+                datasets: [{
+                    label: 'Quantidade',
+                    data: quantidade,
+                    backgroundColor: ['#FA9570', '#82BAAF', '#70FADE', '#A58B81', '#687A77', '#503D37'],
+                    borderColor: ['#ffffff', '#ffffff'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    },
+                    title: {
+                        display: true,
+                        text: 'Seus Gêneros Cadatrados'
+                    }
+                }
+            }
+        });
+
+    }
+
+    function Gerar2(estiloPublico, quantidadePublico){
+
+        const txx = document.getElementById('GraficoGeral').getContext('2d');
+    const grafico2 = new Chart(txx, {
+            type: 'pie',
+            data: {
+                labels: estiloPublico,
+                datasets: [{
+                    label: 'Quantidade',
+                    data: quantidadePublico,
+                    backgroundColor: ['#DED43C', '#34332D', '#703BDE', '#898653', '#50495E'],
+                    borderColor: ['#ffffff', '#ffffff'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    },
+                    title: {
+                        display: true,
+                        text: 'Gêneros Cadatrados Pela Comunidade'
+                    }
+                }
+            }
+        });
+
+    }
+
+    ObterDadosIndividual();
+    ObterDadosPublicos();
 
 
 </script>

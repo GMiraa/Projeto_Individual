@@ -63,16 +63,26 @@
 
 <script>
 
+    var qtd = [];
+
     var nome = sessionStorage.NOME_USUARIO;
     var email = sessionStorage.EMAIL_USUARIO;
     var tipo = sessionStorage.TIPO_USUARIO;
+    var id = sessionStorage.ID_USUARIO;
 
-    function infos(){
+    async function infos(){
+
+        const resposta = await fetch(`/usuario/BuscarQuantidade/${id}`);
+
+        const dados = await resposta.json();
+
+        qtd = dados
 
         nome_user.innerHTML = `${nome}`;
 
         infos_usuario.innerHTML = `Email: <b>${email}</b><br><br>
-                                   Tipo de Jogador: <b>${tipo}</b><br><br>`;
+                                   Tipo de Jogador: <b>${tipo}</b><br><br>
+                                   Quantidade de jogos cadastrados: <b>${qtd[0].quantidade}</b><br><br>`;
 
     }
 

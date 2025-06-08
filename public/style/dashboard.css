@@ -276,3 +276,50 @@ button:hover{
     color: white;
 
 }
+
+.kpis {
+
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    margin-bottom: 2%;
+
+}
+
+#kpi1, #kpi2 {
+
+    width: 15%;
+    height: 10%;
+    background-color: rgba(245, 245, 220, 0.719);
+    color: white;
+    font-family: 'Hubot Sans', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    border-radius: 10px;
+    border: solid 1px orange;
+    text-align: center;
+
+}
+
+#grafico1, #grafico2 {
+
+    width: 25%;
+
+}
+
+#GraficoFavoritos {
+
+    width: 300px;
+    height: 300px;
+    max-width: 100%;
+
+}
+
+.graficos {
+
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    background-color: rgba(245, 245, 220, 0.452);
+    padding-top: 2%;
+    padding-bottom: 2%;
+
+}

@@ -40,8 +40,6 @@
 
         </select><br><br>
 
-        <input type="file" accept="image/*" id="input_imagem">
-
         <div id="div_mensagem"></div><br>
 
         <button type="submit" onclick="cadastrar()">Cadastrar</button><br>
@@ -68,7 +66,6 @@
         var senhaVar = input_senha.value;
         var ConfSenha = input_confSenha.value;
         var tipoVar = select_tipo.value;
-        var imagem = input_imagem.value;
 
         if(nomeVar == '' || emailVar == '' || senhaVar == '' || ConfSenha == '' || tipoVar == '#'){
 
@@ -111,7 +108,7 @@
           })
           alert("Cadastro realizado com sucesso")
           setTimeout(() => {
-            //window.location = "./login.html";
+            window.location = "./login.html";
           }, 1000);
 
     }

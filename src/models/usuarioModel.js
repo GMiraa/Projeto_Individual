@@ -20,16 +20,18 @@ function autenticar(Email, Senha) {
 
 // Coloque os mesmos parâmetros utilizados na Controller. Vá para a var instrucaoSql
 function cadastrar(Nome, Email, Senha, TipoJogador) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", Nome, Email, Senha, TipoJogador);
-    
-    // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
-    //  e na ordem de inserção dos dados.
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente.\n");
+
+    // Normalização
+    TipoJogador = TipoJogador.trim();
+
     var instrucaoSql = `
         INSERT INTO usuario (Nome, Email, Senha, TipoJogador) VALUES ('${Nome}', '${Email}', '${Senha}', '${TipoJogador}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
+
 
 function cadastrarFavorito(NomeFavorito, TipoFavorito, DescricaoFavorito, id) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrarFavorito():", NomeFavorito, TipoFavorito, DescricaoFavorito, id);
@@ -53,6 +55,17 @@ function BuscarFavorito(id){
     return database.executar(instrucaoSql);
 }
 
+function BuscarQuantidade(id){
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function BuscarFavorito():", id);
+
+    var instrucaoSql = `
+        SELECT COUNT(idFavorito) as quantidade FROM favoritos WHERE FkUsuario = '${id}';
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+
 function apagarFavorito(idFavorito){
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function BuscarFavorito():", idFavorito);
 
@@ -73,6 +86,30 @@ function alterarDados(Email, Tipo, idUsuario){
     return database.executar(instrucaoSql);
 }
 
+function GenerosIndividual(id){
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function GenerosIndividual():", id);
+
+    var instrucaoSql = `
+        SELECT Estilo, COUNT(*) AS Quantidade
+        FROM favoritos join usuario on FkUsuario = idUsuario where idUsuario = ${id}
+        GROUP BY Estilo;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function GenerosPublico(){
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function GenerosPublico():");
+
+    var instrucaoSql = `
+        SELECT Estilo, COUNT(*) AS Quantidade
+        FROM favoritos join usuario on FkUsuario = idUsuario
+        GROUP BY Estilo order by Quantidade desc;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     autenticar,
     buscarPerfil,
@@ -80,5 +117,8 @@ module.exports = {
     cadastrarFavorito,
     BuscarFavorito,
     apagarFavorito,
-    alterarDados
+    alterarDados,
+    BuscarQuantidade,
+    GenerosIndividual,
+    GenerosPublico
 };

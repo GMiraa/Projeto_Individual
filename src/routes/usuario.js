@@ -28,4 +28,18 @@ router.post("/alterarDados", function (req, res) {
     usuarioController.alterarDados(req, res);
 });
 
+router.get("/BuscarQuantidade/:id", function (req, res) {
+    usuarioController.BuscarQuantidade(req, res);
+})
+
+router.get("/GenerosIndividual/:id", function (req, res) {
+    usuarioController.GenerosIndividual(req, res);
+})
+
+router.get("/GenerosPublico/", function (req, res) {
+    usuarioController.GenerosPublico(req, res);
+})
+
+
+
 module.exports = router;
