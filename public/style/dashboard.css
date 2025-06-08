@@ -302,6 +302,10 @@ button:hover{
 #grafico1, #grafico2 {
 
     width: 25%;
+    background-color: rgba(214, 174, 136, 0.774);
+    border-radius: 80px;
+    border: 1px solid rgb(219, 186, 137);
+    
 
 }
 
@@ -321,5 +325,7 @@ button:hover{
     background-color: rgba(245, 245, 220, 0.452);
     padding-top: 2%;
     padding-bottom: 2%;
+    border-top: solid 1px white;
+    border-bottom: solid 1px white;
 
 }

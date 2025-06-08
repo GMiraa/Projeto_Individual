@@ -8,6 +8,7 @@
     <script></script>
     <script src="./js/sessao.js"></script>
      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
 
     <title>Planet Games</title>
 
@@ -236,10 +237,24 @@
                     },
                     title: {
                         display: true,
-                        text: 'Seus Gêneros Cadatrados'
-                    }
-                }
+                        text: 'Seus Gêneros Cadatrados',
+                        color: 'white',
+                        font: {
+                            family: 'Hubot Sans, Gill Sans, Gill Sans MT, Calibri, Trebuchet MS, sans-serif',
+                            size: 18  
+                            }
+                    },
+            datalabels: {
+                color: '#ffffff',
+                font: {
+                    weight: 'bold',
+                    size: 14
+                },
+                formatter: (value) => value
             }
+                }
+            },
+            plugins: [ChartDataLabels]
         });
 
     }
@@ -248,31 +263,44 @@
 
         const txx = document.getElementById('GraficoGeral').getContext('2d');
     const grafico2 = new Chart(txx, {
-            type: 'pie',
-            data: {
-                labels: estiloPublico,
-                datasets: [{
-                    label: 'Quantidade',
-                    data: quantidadePublico,
-                    backgroundColor: ['#DED43C', '#34332D', '#703BDE', '#898653', '#50495E'],
-                    borderColor: ['#ffffff', '#ffffff'],
-                    borderWidth: 1
-                }]
+    type: 'pie',
+    data: {
+        labels: estiloPublico,
+        datasets: [{
+            label: 'Quantidade',
+            data: quantidadePublico,
+            backgroundColor: ['#DED43C', '#34332D', '#703BDE', '#898653', '#50495E'],
+            borderColor: ['#ffffff', '#ffffff'],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'bottom'
             },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'bottom'
-                    },
-                    title: {
-                        display: true,
-                        text: 'Gêneros Cadatrados Pela Comunidade'
-                    }
+            title: {
+                display: true,
+                text: 'Gêneros Cadastrados Pela Comunidade',
+                color: 'white',
+                font: {
+                    family: 'Hubot Sans, Gill Sans, Gill Sans MT, Calibri, Trebuchet MS, sans-serif',
+                    size: 14
                 }
+            },
+            datalabels: {
+                color: '#ffffff',
+                font: {
+                    weight: 'bold',
+                    size: 14
+                },
+                formatter: (value) => value
             }
-        });
-
+        }
+    },
+    plugins: [ChartDataLabels]
+});
     }
 
     ObterDadosIndividual();
