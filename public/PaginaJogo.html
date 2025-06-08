@@ -1,21 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>
-
-<!DOCTYPE html>
 <html lang="en" id="home">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style/index.css">
+    <link rel="stylesheet" href="./style/PaginaJogo.css">
     <link rel="icon" href="./style/imagens/Logo da Planet Games.png">
     <script src="./js/sessao.js"></script>
 
@@ -49,17 +37,17 @@
 
     </header>
 
-    <div class="container1">
+    <button id="voltar" onclick="voltar()">Voltar</button>
 
-        <div id="textoContainer">
+    
 
-            <video disablepictureinpicture autoplay src="./style/imagens/sunset-sky-ghost-of-tsushima-moewalls-com.mp4" muted loop id="videoFundo">
-                <source src="" type="video/mp4">
-            </video>
+        <div id="ImagemFundo"></div>
+
+        <div id="informacoesJogo">
+
+           
 
         </div>
-
-    </div>
 
     <footer>
 
@@ -73,12 +61,31 @@
                 <p id="desenvolvido">Desenvolvido por <b>Guilherme Faria de Mira</b></p>
 
     </footer>
-
+<img src="./" alt="" >
 </body>
 </html>
 
 <script>
 
+    var idJogo = sessionStorage.idJogo;
+
+    function voltar(){
+
+        window.location = "./index.html";
+
+    }
+
+    async function carregarJogos() {
+
+        const resposta = await fetch(`/usuario/infosJogos/${idJogo}`);
+        const dados = await resposta.json();
+
+        console.log(dados);
+
+        ImagemFundo.innerHTML = `<img src="${dados[0].Imagem_de_Fundo}">`;
         
+    }
+
+    carregarJogos();
 
 </script>

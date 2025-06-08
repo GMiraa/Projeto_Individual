@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Hubot+Sans:ital,wght@0,200..900;1,200..900&display=swap');
+
+#navbar {
+    margin: 0;
+    height: 120px;
+    margin-top: 0%;
+    background-color: rgba(0, 0, 0, 0.527);
+    display: flex;
+    color: white;
+    justify-content: space-around;
+    width: 100%;
+    z-index: 100;
+    align-items: center;
+    font-family: 'Hubot Sans','Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    position: absolute;
+
+}
+
+body{
+
+    margin: auto;
+    background-color: rgb(53, 8, 8);
+
+}
+
+#navbar ul{
+
+    display: flex;
+    list-style-type: none;
+    width: 45%;
+    align-items: center;
+    
+}
+
+#navbar li{
+
+    font-size: 1rem;
+    margin-right: auto;
+
+}
+
+#navbar #logo{
+
+    width: 140px;
+    height: 130px;
+    margin-right: 10px;
+}
+
+#navbar #perfil{
+
+    width: 70px;
+    height: 70px;
+
+}
+
+#perfilLogin{
+
+    display: flex;
+
+}
+
+#perfilLogin span{
+
+    align-self: center;
+
+}
+
+#selecionado {
+
+    text-decoration: underline;
+
+}
+
+#navbar ul a {
+
+    text-decoration: none;
+    color: white;
+
+}
+
+
+.sair a {
+
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+
+}
+
+.sair, #navbar ul a, footer ul a {
+
+    position: relative;
+
+}
+
+.sair:after {
+
+    content: ' ';     /* para aparecer a "div"  */
+    position: absolute;/* para posicionar a "div"  */
+    width: 0; /* para dimensionar a "div"  */
+    height: 3px; /* para dimensionar a "div"  */
+    background-color: white;
+    bottom: 18px; /* para posicionar a "div"  */
+    transition: 0.2s; /* para "animar" a "div"  */
+
+}
+
+#navbar ul a:after, footer ul a:after{
+
+    content: ' ';     /* para aparecer a "div"  */
+    position: absolute;/* para posicionar a "div"  */
+    width: 0; /* para dimensionar a "div"  */
+    height: 2px; /* para dimensionar a "div"  */
+    background-color: white;
+    bottom: -1px; /* para posicionar a "div"  */
+    transition: 0.2s; /* para "animar" a "div"  */
+    left: 0px;
+
+}
+
+.sair:hover:after, #navbar ul a:hover:after, footer ul a:hover:after {
+
+    width: 100%;
+    
+}
+
+#perfil{
+
+    text-decoration: none;
+    color: white;
+
+}
+
+footer {
+
+    background: linear-gradient(to bottom, rgb(0, 0, 0), rgb(90, 10, 10));
+    height: 220px;
+    color: white;
+    border-top: solid 1px white;
+    
+}
+
+footer ul{
+
+    list-style-type: none;
+
+}
+
+footer ul li {
+
+    padding-top: 1%;
+    font-family: 'Hubot Sans','Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+
+footer ul a{
+
+    text-decoration: none;
+    color: white;
+    
+}
+
+footer p {
+
+    font-family: 'Hubot Sans','Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 0.8rem;
+    color: white;
+}
+
+#desenvolvido {
+
+    margin-left: 40%;
+
+}
+
+.container1 {
+
+    height: 590px;
+    width: 100%;
+    position: relative;
+    text-align: center;
+    font-size: 2rem;
+    font-family: 'Aclonica',Georgia, 'Times New Roman', Times, serif;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-bottom: 1px solid white;
+
+}
+
+.container1 video {
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    object-position: 50% 25%; /* ← Centraliza o vídeo vertical e horizontalmente */
+    z-index: -1;
+    width: 100%;
+    height: 160%;
+    
+}
+
+#voltar {
+
+    background-color: transparent;
+    color: white;
+    border: solid 1px white;
+    border-radius: 12px;
+    width: auto;
+    padding: 0.5%;
+    height: auto;
+    position: absolute;
+    cursor: pointer;
+    margin-top: 8%;
+    margin-left: 5%;
+    transition: 0.2s;
+    z-index: 100;
+
+}
+
+#voltar:hover {
+
+    border: solid 1px white;
+    color: black;
+    background-color: white;
+    transition: 0.2s;
+
+}
+
+#ImagemFundo img {
+
+    width: 100%;
+    height: 900px;
+    background-size: cover;
+
+}
+
+#informacoesJogo {
+
+    background-color: black;
+
+}

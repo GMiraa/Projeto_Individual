@@ -44,8 +44,9 @@ router.get("/KpiPublico/", function (req, res) {
     usuarioController.KpiPublico(req, res);
 })
 
-
-
+router.get("/infosJogos/:idJogo", function (req, res) {
+    usuarioController.infosJogos(req, res);
+})
 
 
 module.exports = router;
