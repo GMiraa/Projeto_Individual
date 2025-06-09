@@ -41,13 +41,9 @@
 
     
 
-        <div id="ImagemFundo"></div>
+        <div id="ImagemFundo"><div id="informacoesJogo"></div></div>
 
-        <div id="informacoesJogo">
-
-           
-
-        </div>
+        
 
     <footer>
 
@@ -67,6 +63,8 @@
 
 <script>
 
+    var infos = [];
+
     var idJogo = sessionStorage.idJogo;
 
     function voltar(){
@@ -80,9 +78,27 @@
         const resposta = await fetch(`/usuario/infosJogos/${idJogo}`);
         const dados = await resposta.json();
 
+        infos = dados;
+
         console.log(dados);
 
-        ImagemFundo.innerHTML = `<img src="${dados[0].Imagem_de_Fundo}">`;
+        if((infos[0].Imagem_de_Fundo).indexOf(4) != -1){
+
+            ImagemFundo.innerHTML += `<video disablepictureinpicture autoplay src="${infos[0].Imagem_de_Fundo}" muted loop id="videoFundo">
+                                        <source src="" type="video/mp4">
+                                    </video>`;
+
+        }
+        if((infos[0].Imagem_de_Fundo).indexOf(4) == -1){
+
+            ImagemFundo.innerHTML += `<img src="${infos[0].Imagem_de_Fundo}">`;
+
+        }
+
+        
+        informacoesJogo.innerHTML = `${infos[0].Nome}<br><br><br>
+                                     Ranking: ${infos[0].Ranking}<br><br><br><br>
+                                     <p>${infos[0].Descricao}</p>`;
         
     }
 

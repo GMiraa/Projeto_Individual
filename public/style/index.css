@@ -242,9 +242,7 @@ footer p {
 #descricao {
 
     height: 300px;
-    width: 50%;
-    /* margin-left: 50px;
-    margin-right: 50px; */
+    width: 40%;
     align-self: center;
     text-align: center;
     font-size: 1.2rem;
@@ -252,7 +250,8 @@ footer p {
     padding: 2%;
     border-radius: 20px;
     border: solid 1px rgb(61, 1, 61);
-    
+    align-content: center;
+    margin: 50px;
 
 }
 
@@ -270,6 +269,7 @@ footer p {
     width: 100%;
     height: 500px;
     cursor: pointer;
+    justify-content: space-between;
 
 }
 
