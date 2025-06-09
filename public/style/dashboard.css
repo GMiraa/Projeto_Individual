@@ -136,7 +136,7 @@ footer {
     background: linear-gradient(to bottom, rgb(0, 0, 0), rgb(90, 10, 10));
     height: 220px;
     color: white;
-    margin-top: 25%;
+    margin-top: 5%;
     border-top: solid 1px white;
     
 }
@@ -291,7 +291,7 @@ button:hover{
     width: 15%;
     height: 10%;
     background-color: rgba(245, 245, 220, 0.719);
-    color: white;
+    color: rgb(124, 44, 44);
     font-family: 'Hubot Sans', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     border-radius: 10px;
     border: solid 1px orange;
@@ -304,7 +304,7 @@ button:hover{
     width: 25%;
     background-color: rgba(214, 174, 136, 0.774);
     border-radius: 80px;
-    border: 1px solid rgb(219, 186, 137);
+    border: 1px solid rgb(255, 255, 255);
     
 
 }
