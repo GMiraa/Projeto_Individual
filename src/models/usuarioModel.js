@@ -141,7 +141,7 @@ function InserirResultado(idUsuario, Acertos, Erros) {
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucaoSql = `
-        INSERT INTO ResultadoQuiz (fkUsuario, Acertos, Erros) VALUES ('${idUsuario}', '${Acertos}', '${Erros}');
+        INSERT INTO resultadoquiz (fkUsuario, Acertos, Erros) VALUES ('${idUsuario}', '${Acertos}', '${Erros}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -153,7 +153,7 @@ function KPIquiz(){
     var instrucaoSql = `
         SELECT u.Nome, r.Acertos
         FROM usuario u
-        JOIN ResultadoQuiz r ON u.idUsuario = r.fkUsuario
+        JOIN resultadoquiz r ON u.idUsuario = r.fkUsuario
         ORDER BY r.Acertos DESC
         LIMIT 1;
     `;
