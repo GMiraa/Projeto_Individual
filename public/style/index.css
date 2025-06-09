@@ -19,7 +19,7 @@
 body{
 
     margin: auto;
-    background-color: rgb(53, 8, 8);
+    background-color: rgb(77, 19, 19);
 
 }
 
@@ -177,7 +177,7 @@ footer p {
 
 .container1 {
 
-    height: 590px;
+    height: 690px;
     width: 100%;
     position: relative;
     text-align: center;
@@ -248,8 +248,8 @@ footer p {
     font-size: 1.2rem;
     background-color: rgba(230, 230, 230, 0.692);
     padding: 2%;
-    border-radius: 20px;
-    border: solid 1px rgb(61, 1, 61);
+    border-radius: 50px;
+    border: solid 2px rgb(255, 255, 255);
     align-content: center;
     margin: 50px;
 
@@ -277,7 +277,7 @@ footer p {
 
     border-top-right-radius: 95px;
     border-bottom-right-radius: 95px;
-    border: solid 1px rgb(61, 1, 61);
+    border: solid 1px rgb(255, 255, 255);
     width: 50%;
 
 }
@@ -286,7 +286,7 @@ footer p {
 
     border-top-left-radius: 95px;
     border-bottom-left-radius: 95px;
-    border: solid 1px rgb(61, 1, 61);
+    border: solid 1px rgb(255, 255, 255);
     margin-left: 10%;
     width: 50%;
 
