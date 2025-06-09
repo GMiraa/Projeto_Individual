@@ -179,6 +179,21 @@ function cadastrarFavorito(req, res) {
     });
 }
 
+    function KPIquiz(req, res) {
+
+    usuarioModel.KPIquiz().then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado); 
+        } else {
+            res.status(204).send("Nenhum usuario encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar o usuario.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
     function infosJogos(req, res) {
 
     var idJogo = req.params.idJogo
@@ -242,6 +257,30 @@ function alterarDados(req, res){
         );
 }
 
+function InserirResultado(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var Acertos = req.body.acertos;
+    var Erros = req.body.erros;
+    var idUsuario = req.body.idUsuario;
+
+    // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+    usuarioModel.InserirResultado(idUsuario, Acertos, Erros)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar a inserção dos resultados! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
 
 
 module.exports = {
@@ -255,5 +294,7 @@ module.exports = {
     GenerosIndividual,
     GenerosPublico,
     KpiPublico,
-    infosJogos
+    infosJogos,
+    InserirResultado,
+    KPIquiz
 }

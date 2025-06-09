@@ -320,12 +320,23 @@ button:hover{
 .graficos {
 
     display: flex;
+    flex-direction: column;
     width: 100%;
+    height: auto;
     justify-content: space-around;
     background-color: rgba(245, 245, 220, 0.452);
     padding-top: 2%;
-    padding-bottom: 2%;
+    padding-bottom: 5%;
     border-top: solid 1px white;
     border-bottom: solid 1px white;
+
+}
+
+#graficosJuntos {
+
+    margin-top: 3%;
+    display: flex;
+    justify-content: space-around;
+
 
 }

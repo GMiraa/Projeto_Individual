@@ -44,8 +44,16 @@ router.get("/KpiPublico/", function (req, res) {
     usuarioController.KpiPublico(req, res);
 })
 
+router.get("/KPIquiz/", function (req, res) {
+    usuarioController.KPIquiz(req, res);
+})
+
 router.get("/infosJogos/:idJogo", function (req, res) {
     usuarioController.infosJogos(req, res);
+})
+
+router.post("/InserirResultado", function (req, res) {
+    usuarioController.InserirResultado(req, res);
 })
 
 

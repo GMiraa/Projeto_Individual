@@ -60,6 +60,8 @@
 
     <h1>Dashboard</h1>
 
+    <div class="graficos">
+
     <div class="kpis">
 
         <div id="kpi1">
@@ -82,7 +84,7 @@
 
     </div>
 
-    <div class="graficos">
+    <div id="graficosJuntos">
 
         <div id="grafico1">
 
@@ -95,6 +97,8 @@
             <canvas id="GraficoGeral"></canvas>
 
         </div>
+
+    </div>
 
     </div>
 
@@ -124,6 +128,7 @@
     var id = sessionStorage.ID_USUARIO;
     var maisJogado = 0;
     var UsuarioMais = 0;
+    var NotaAltaQuiz = 0;
 
     async function jogosFavoritos(){
 
@@ -196,12 +201,15 @@
         
         const resposta = await fetch(`/usuario/GenerosPublico/`);
         const resposta2 = await fetch(`/usuario/KpiPublico/`);
+        const resposta3 = await fetch(`/usuario/KPIquiz/`);
 
         const dados = await resposta.json();
         const dados2 = await resposta2.json();
+        const dados3 = await resposta3.json();
 
         console.log("Usuario mais:");
         console.log(dados2);
+        console.log(dados3);
 
         const estiloPublico = dados.map(item => item.Estilo);
         tiposPublico = estiloPublico;
@@ -214,11 +222,14 @@
 
         maisJogado = tiposPublico[0];
         UsuarioMais = dados2;
+        NotaAltaQuiz = dados3;
 
         estiloMaisJogado.innerHTML = `${maisJogado}`;
         UsuarioMaisCadastro.innerHTML = `${UsuarioMais[0].Nome}`;
+        UsuarioMaisQuiz.innerHTML = `${NotaAltaQuiz[0].Nome}`;
 
     }
+
 
     function Gerar(estilo, quantidade){
 

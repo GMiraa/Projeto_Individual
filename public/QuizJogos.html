@@ -51,10 +51,10 @@
                 </div>
                 <div id="pontuacaoFinalJogo" class="flexColumn padding-8">
                     <span id="pontuacaoFinal" class="width-fit-content">Pontuação Final:
-                        <span id="spanPontuacaoFinal">***</span>
+                        <span id="spanPontuacaoFinal">***</span><br><br>
                     </span>
-                    <span id="msgFinal" class="width-fit-content">***</span>
-                </div>
+                    <b><span id="msgFinal" class="width-fit-content">***</span></b>
+                </div><br><br>
                 <button onclick="tentar()" id="novamente" disabled>Tentar novamente</button>
             </div>
 
@@ -231,12 +231,14 @@
 
     ]
 
-    var numeroDaQuestaoAtual = 0
-    var pontuacaoFinal = 0
-    var tentativaIncorreta = 0
-    var acertos = 0
-    var erros = 0
-    var quantidadeDeQuestoes = Questoes.length
+    var numeroDaQuestaoAtual = 0;
+    var pontuacaoFinal = 0;
+    var tentativaIncorreta = 0;
+    var acertos = 0;
+    var erros = 0;
+    var quantidadeDeQuestoes = Questoes.length;
+
+    var id = sessionStorage.ID_USUARIO;
 
 
     function onload(){
@@ -418,6 +420,24 @@
         btnProx.disabled = true
         btnSubmeter.disabled = true
         novamente.disabled = false
+
+        inserirResultados()
+
+    }
+
+    function inserirResultados(){
+
+        fetch('/usuario/InserirResultado', {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              idUsuario: id,
+              acertos: acertos,
+              erros: erros,
+            })
+          })
 
     }
 
